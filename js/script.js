@@ -76,7 +76,7 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let a = await fetch(`/songs/`);
+  let a = await fetch(`songs/`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -93,7 +93,7 @@ async function displayAlbums() {
       if (folder === "songs" || folder === "") continue;
 
       // Get metadata of the folder
-      let a = await fetch(`/songs/${folder}/info.json`);
+      let a = await fetch(`songs/${folder}/info.json`);
       let response = await a.json();
       console.log(response);
       cardContainer.innerHTML =
@@ -114,7 +114,7 @@ async function displayAlbums() {
                 </svg>
               </div>
               <img
-                src="/songs/${folder}/cover.jpg"
+                src="songs/${folder}/cover.jpg"
                 alt=""
               />
               <h2>${response.genre}</h2>
